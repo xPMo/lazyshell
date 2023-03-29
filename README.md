@@ -1,9 +1,23 @@
 # [@xPMo](https://github.com/xPMo)'s Lazyshell Fork TODO
 
-- [ ] Remove recommendation to `export OPENAI_API_KEY`. Possibly switch to zstyle?
+In [cleanup]:
+
+- [x] Remove recommendation to `export OPENAI_API_KEY`.
+
+TODO:
+
 - [ ] Avoid `_`-prefixed functions (Zsh parses them as completion functions)
-- [ ] Resolve Keyboard shortcut conflict
-(Alt-G conflicts with [zsh-toggle-comand-prefix](https://github.com/xPMo/zsh-toggle-command-prefix) - `noglob` prefix toggle)
-- [ ] Set default prompt(s) with `zstyle`
+- [ ] Move functions to seperate files in their own directory, `autoload` them
+- [ ] Resolve Keyboard shortcut conflict(s) (Alt-G conflicts with [toggle-command-prefix] - `noglob` prefix toggle)
+  - [ ] Check preferred keyboard shortcut from `zstyle` first
+    - [ ] Support vicmd/viins -only 
+- [ ] Configurable default prompt(s) via `zstyle`
 - [ ] Optionally send previous command history as prompt/context
 - [ ] Open full prompt in `$VISUAL`/`$EDITOR` to tweak
+
+Long-term:
+
+- [ ] Configurable endpoint and json schema
+
+[cleanup]: https://github.com/xPMo/lazyshell/tree/cleanup
+[toggle-command-prefix]: https://github.com/xPMo/zsh-toggle-command-prefix
