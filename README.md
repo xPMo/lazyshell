@@ -13,11 +13,15 @@ TODO:
     - [ ] Support vicmd/viins -only 
 - [ ] Configurable default prompt(s) via `zstyle`
 - [ ] Optionally send previous command history as prompt/context
+  - [ ] Load preferred context from `zstyle`.
 - [ ] Open full prompt in `$VISUAL`/`$EDITOR` to tweak
 
 Long-term:
 
 - [ ] Configurable endpoint and json schema
+- [ ] Use [mafredri/zsh-async]
+  - [ ] This might allow token streaming?
 
 [cleanup]: https://github.com/xPMo/lazyshell/tree/cleanup
 [toggle-command-prefix]: https://github.com/xPMo/zsh-toggle-command-prefix
+[mafredri/zsh-async]: https://github.com/mafredri/zsh-async
