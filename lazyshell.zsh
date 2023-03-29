@@ -4,7 +4,7 @@ __lzsh_get_distribution_name() {
   if [[ "$(uname)" == "Darwin" ]]; then
     echo "$(sw_vers -productName) $(sw_vers -productVersion)" 2>/dev/null
   else
-    echo "$(cat /etc/*-release 2>/dev/null | grep PRETTY_NAME | cut -d'"' -f2)"
+    sed -n '/PRETTY_NAME/{ s/^.*="*//; s/"$//; p }' /etc/*-release
   fi
 }
 
