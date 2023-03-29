@@ -76,6 +76,7 @@ __lzsh_llm_api_call() {
   # Display a spinner while the API request is running in the background
   local spinner=("⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏")
   while true; do
+    local i
     for i in "${spinner[@]}"; do
       if ! kill -0 $pid 2> /dev/null; then
         break 2
