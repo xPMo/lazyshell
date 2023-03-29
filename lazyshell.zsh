@@ -53,9 +53,15 @@ __lzsh_llm_api_call() {
 
   local response_file=$(mktemp)
 
-  local escaped_prompt=$(echo "$prompt" | jq -R -s '.')
-  local escaped_intro=$(echo "$intro" | jq -R -s '.')
-  local data='{"messages":[{"role": "system", "content": '"$escaped_intro"'},{"role": "user", "content": '"$escaped_prompt"'}],"model":"gpt-3.5-turbo","max_tokens":256,"temperature":0}'
+  local data=$(jq -nr --arg prompt "$prompt" --arg intro "$intro" '{
+    "messages":[
+      {"role": "system", "content": $intro},
+      {"role": "user", "content": $prompt}
+    ],
+    "model":"gpt-3.5-turbo",
+    "max_tokens":256,
+    "temperature":0
+  }')
 
   # Read the response from file
   # Todo: avoid using temp files
@@ -86,12 +92,12 @@ __lzsh_llm_api_call() {
     return 1
   fi
 
-  local response=$(cat "$response_file")
+  local error=$(jq -r '.error.message' < $response_file)
+  generated_text=$(jq -r '.choices[0].message.content' < $response_file | tr '\n' '\r' | sed -e $'s/^[ \r`]*//; s/[ \r`]*$//' | tr '\r' '\n')
+
   # explicit rm invocation to avoid user shell overrides
   command rm "$response_file"
 
-  local error=$(echo -E $response | jq -r '.error.message')
-  generated_text=$(echo -E $response | jq -r '.choices[0].message.content' | tr '\n' '\r' | sed -e $'s/^[ \r`]*//; s/[ \r`]*$//' | tr '\r' '\n')
 
   if [ $? -ne 0 ]; then
     zle -M "Error: Invalid API response format"
