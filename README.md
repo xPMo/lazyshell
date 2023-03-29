@@ -48,7 +48,7 @@ brew install curl jq
 curl -o ~/.lazyshell.zsh https://raw.githubusercontent.com/not-poma/lazyshell/master/lazyshell.zsh
 
 # Add the following lines to your .zshrc
-export OPENAI_API_KEY=<your_api_key>
+OPENAI_API_KEY=<your_api_key>
 [ -f ~/.lazyshell.zsh ] && source ~/.lazyshell.zsh
 ```
 

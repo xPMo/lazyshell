@@ -23,7 +23,7 @@ __lzsh_preflight_check() {
     echo ""
     echo "Error: OPENAI_API_KEY is not set"
     echo "Get your API key from https://platform.openai.com/account/api-keys and then run:"
-    echo "export OPENAI_API_KEY=<your API key>"
+    echo "OPENAI_API_KEY=<your API key>"
     zle reset-prompt
     return 1
   fi
@@ -179,7 +179,7 @@ __lazyshell_explain() {
 if [ -z "$OPENAI_API_KEY" ]; then
   echo "Warning: OPENAI_API_KEY is not set"
   echo "Get your API key from https://platform.openai.com/account/api-keys and then run:"
-  echo "export OPENAI_API_KEY=<your API key>"
+  echo "OPENAI_API_KEY=<your API key>"
 fi
 
 # Bind the __lazyshell_complete function to the Alt-g hotkey
