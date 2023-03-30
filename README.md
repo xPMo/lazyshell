@@ -76,7 +76,7 @@ Inspired by https://github.com/TheR1D/shell_gpt
 - [ ] multiline formatting and syntax highlighting for the explanations
 - [ ] make some kind of preview before replacing the buffer
 - [ ] create brew package
-- [ ] query history
+- [x] keeping a history of queries
 - [x] better json escaping
 - [x] better error handling
 - [ ] token streaming
