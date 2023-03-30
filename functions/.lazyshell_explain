@@ -1,0 +1,17 @@
+emulate -L zsh
+.lzsh_preflight_check || return 1
+
+local buffer_context="$BUFFER"
+
+local os
+.lzsh_get_distribution_name os
+local intro="You are a zsh command explanation assistant${os:+ for $os}. You write short and concise explanations what a given zsh command does, including the arguments. You answer with no line breaks."
+local prompt="$buffer_context"
+
+.lzsh_llm_api_call "$intro" "$prompt" "Fetching Explanation..."
+if [ $? -ne 0 ]; then
+  return 1
+fi
+
+zle -R "# $generated_text"
+read -k 1
