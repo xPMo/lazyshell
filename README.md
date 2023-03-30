@@ -3,11 +3,12 @@
 In [cleanup]:
 
 - [x] Remove recommendation to `export OPENAI_API_KEY`.
+- [x] Follow zsh plugin standard more closely
+- [x] Avoid `_`-prefixed functions (Zsh parses them as completion functions)
+- [x] Move functions to seperate files in their own directory, `autoload` them
 
 TODO:
 
-- [ ] Avoid `_`-prefixed functions (Zsh parses them as completion functions)
-- [ ] Move functions to seperate files in their own directory, `autoload` them
 - [ ] Resolve Keyboard shortcut conflict(s) (Alt-G conflicts with [toggle-command-prefix] - `noglob` prefix toggle)
   - [ ] Check preferred keyboard shortcut from `zstyle` first
     - [ ] Support vicmd/viins -only 
