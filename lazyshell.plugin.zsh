@@ -53,4 +53,4 @@ bindkey '\eg' lazyshell.complete
 bindkey '\ee' lazyshell.explain
 
 typeset -ga ZSH_AUTOSUGGEST_CLEAR_WIDGETS
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=( .lazyshell_explain )
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=( lazyshell.explain )
